@@ -1,5 +1,5 @@
 local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
-loadstring(game:HttpGet("https://pastebin.com/raw/nzXicwc1", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/qs4d/a/main/chatlog.lua", true))()
 local win = lib:Window("Untitled Hood | cool",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
 local Main = win:Tab("Main")
 local Shop = win:Tab("Shop")
