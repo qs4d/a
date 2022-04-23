@@ -1,4 +1,3 @@
-
 repeat task.wait() until game:IsLoaded()
 pcall(function()
     repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild('FULLY_LOADED_CHAR')
@@ -12,6 +11,13 @@ end
 _G.LD = true
 wait(2)
 _G.LD = false
+
+--Small FPS Booster
+for I,V in pairs(workspace:GetDescendants()) do
+    if (V.ClassName == "Part" or V.ClassName == "WedgePart") then
+        V.Material = "SmoothPlastic"
+    end
+end
 -- // Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local players = game:GetService('Players')
