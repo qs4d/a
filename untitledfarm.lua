@@ -209,7 +209,7 @@ function ATM()
             end
         end
     end
-	wait(2)
+	wait(0.7)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-222.11221313476562, 189.4227294921875, -1569.8037109375)
     if getgenv().serverhop then
         local num = math.random(5,12)
