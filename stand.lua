@@ -346,7 +346,7 @@ function register(v)
                 end
             elseif msg[1] == 'save'..prefix then
                 if msg[2] then
-                    chat('Saving ' .. msg[2] .. ', ' .. game.Players[v].DisplayName)
+                    chat('Saving ' .. msg[2] .. ', ')
                     savePlayer(msg[2])
                 elseif not msg[2] then
                     chat("I'm saving you, " .. game.Players[v].DisplayName)
@@ -381,12 +381,17 @@ function register(v)
             elseif msg[1] == 'unfollow'..prefix then
                 unfollow()
             elseif msg[1] == 'db'..prefix then
+                chat('Do knock! (name) and then save! to do this!')
+                chat('You must be knocked and picked up by the Bot!')
+                wait(2)
                 chat('Teleporting you to DB!')
 wait(2)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(256.8851623535156, 99.05281066894531, -1813.3515625)
 wait(2)
+game:GetService("ReplicatedStorage"):FindFirstChild(".gg/untitledhood"):FireServer("Grabbing",false)
 chat('Teleported!')
             elseif msg[1] == 'rev'..prefix then
+                chat('Do knock! (name) and then save! to do this!')
                 chat('Teleporting...')
                 wait(2)
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(248.0998992919922, 115.66084289550781, -1166.875244140625)
@@ -399,7 +404,7 @@ chat('Teleported!')
                 end
             end
         end)
-        chat('Registered the user!')
+        chat('Loaded / Registered the user!')
     end
 end
 
@@ -418,24 +423,6 @@ coroutine.resume(coroutine.create(function()
         end
     end
 end))
-
-player.CharacterAdded:Connect(function() ATM() end)
-aad = false
-function check()
-    if not player.Backpack:FindFirstChild('Mask') and not chr:FindFirstChild("Mask") then
-        repeat
-            task.wait(0.3)
-            pcall(function()
-            chr.HumanoidRootPart.CFrame = workspace.Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame + Vector3.new(0, 5, 0)
-            end)
-            task.wait(0.3)
-            fireclickdetector( workspace.Ignored.Shop["[Surgeon Mask] - $25"].ClickDetector)
-        until player.Backpack:FindFirstChild('Mask')
-        chr.Humanoid:EquipTool(player.Backpack["Mask"])
-        task.wait(0.1)
-        m1click()
-    end
-    end
 
 
 getgenv().loaded = true
