@@ -1,4 +1,3 @@
---not mine but edited thigns
 repeat wait() until game:IsLoaded()
 pcall(function()
     repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild('FULLY_LOADED_CHAR')
@@ -381,6 +380,16 @@ function register(v)
                 stand(v)
             elseif msg[1] == 'unfollow'..prefix then
                 unfollow()
+            elseif msg[1] == 'db'..prefix then
+                chat('Teleporting you to DB!')
+wait(2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(256.8851623535156, 99.05281066894531, -1813.3515625)
+wait(2)
+chat('Teleported!')
+            elseif msg[1] == 'rev'..prefix then
+                chat('Teleporting...')
+                wait(2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(248.0998992919922, 115.66084289550781, -1166.875244140625)
             elseif msg[1] == 'add'..prefix then
                 if table.find(hosts, v) then
                     table.insert(users, msg[2])
