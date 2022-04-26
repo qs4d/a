@@ -205,7 +205,7 @@ function bringPlayer(target, plr)
         until players[target].BodyEffects:FindFirstChild('KOED_DEBUG')
     end)
     player.Character.HumanoidRootPart.CFrame = pos
-    chat('Here is ' .. msg[2] .. ', ')
+    chat('Here is ' .. msg[2] .. '')
     wait(1)
     game:GetService("ReplicatedStorage"):FindFirstChild(".gg/untitledhood"):FireServer("Grabbing",false)
     abort = false
@@ -302,8 +302,8 @@ spawn(function()
     end
 end)
 
-local follow = {"I follow you, ","Lets go, ", "Keeping you safe, "}
-local summon = {'Hello, ',"At your service, ", "I'm here, ","Let's begin, ", "Waiting for your commands, "}
+local follow = {"I will follow you everywhere you go.","Lets go.", "Keeping you safe, sir!"}
+local summon = {'Hello!',"At your service.", "I'm here.","Let's begin this!", "Waiting for your special permissions."}
 local prefix = '!'
 function register(v)
     if table.find(hosts, v) or table.find(users, v) then 
@@ -314,15 +314,15 @@ function register(v)
             end
             if msg[1] == 'kill'..prefix then
                 if msg[2] and game.Players:FindFirstChild(msg[2]) then
-                    chat('Killing ' .. msg[2] .. ', ')
+                    chat('Killing ' .. msg[2] .. '')
                     spin(msg[2], true, v)
                     player.Character.HumanoidRootPart.CFrame = players[v].Character.HumanoidRootPart.CFrame + Vector3.new(0,0,3)
-                    chat('I killed ' .. msg[2] .. ', ')
+                    chat('I killed ' .. msg[2] .. '')
                 end
             elseif msg[1] == 'autokill'..prefix then
                 if msg[2] and game.Players:FindFirstChild(msg[2]) then
                     if not autokill then
-                        chat('Autokilling ' .. msg[2] .. ', ')
+                        chat('Autokilling ' .. msg[2] .. '')
                         autokilltarget = msg[2]
                         autokill = true
                     else
@@ -330,14 +330,14 @@ function register(v)
                         autokilltarget = nil
                         wait(1)
                         player.Character.HumanoidRootPart.CFrame = players[v].Character.HumanoidRootPart.CFrame + Vector3.new(0,0,3)
-                        chat('Stopped autokilling ' .. msg[2] .. ', ')
+                        chat('Stopped autokilling ' .. msg[2] .. '')
                     end
                 end
             elseif msg[1] == 'knock'..prefix then
                 if msg[2] and game.Players:FindFirstChild(msg[2]) then
-                    chat('Knocking ' .. msg[2] .. ', ')
+                    chat('Knocking ' .. msg[2] .. '')
                     spin(msg[2], false, v)
-                    chat('Knocked ' .. msg[2] .. ', ')
+                    chat('Knocked ' .. msg[2] .. '')
                 end
             elseif msg[1] == 'bring'..prefix then
                 if msg[2] and game.Players:FindFirstChild(msg[2]) then
@@ -346,7 +346,7 @@ function register(v)
                 end
             elseif msg[1] == 'save'..prefix then
                 if msg[2] then
-                    chat('Saving ' .. msg[2] .. ', ')
+                    chat('Saving ' .. msg[2] .. '')
                     savePlayer(msg[2])
                 elseif not msg[2] then
                     chat("I'm saving you, " .. game.Players[v].DisplayName)
