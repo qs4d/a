@@ -177,6 +177,52 @@ function spin(target, stomp, op)
     end
 end
 
+function benx(target)
+    bending = true
+    local segtarget = target
+    local Crouch = player.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(game:GetService("ReplicatedStorage").ClientAnimations.Crouching)
+    Crouch.Looped = true
+    Crouch:Play()
+    local away = .5
+    local reversing = false
+    local shirt = player.Character:FindFirstChild('Shirt')
+    local pants = player.Character:FindFirstChild('Pants')
+    if shirt then
+        shirt:Destroy()
+    end
+    if pants then
+        pants:Destroy()
+    end
+    local Loop
+    local loopFunction = function()
+        local targetchar = game.Workspace.Players:FindFirstChild(segtarget) or game.Workspace:FindFirstChild(segtarget)
+        local character = player.Character
+        if targetchar then
+            if reversing == true then
+                away = away - 0.1
+            else
+                away = away + 0.1
+            end
+            if away >= 2 then
+                reversing = true
+            elseif away < 0.5 then
+                reversing = false
+            end
+            character.HumanoidRootPart.CFrame = game.Players[segtarget].Character.HumanoidRootPart.CFrame + game.Players[segtarget].Character.HumanoidRootPart.CFrame.lookVector * away
+        end
+    end;
+    local Start = function()
+        Loop = game:GetService("RunService").Heartbeat:Connect(loopFunction);
+    end;
+    local Pause = function()
+        Loop:Disconnect()
+        Crouch:Stop()
+    end;
+    Start()	
+    repeat wait() until bending == false
+    Pause()
+end
+
 function savePlayer(target)
     abort = true
     if players[target].BodyEffects["K.O"].Value then
@@ -317,6 +363,7 @@ function register(v)
                     chat('Killing ' .. msg[2] .. '')
                     spin(msg[2], true, v)
                     player.Character.HumanoidRootPart.CFrame = players[v].Character.HumanoidRootPart.CFrame + Vector3.new(0,0,3)
+                    wait(5)
                     chat('I killed ' .. msg[2] .. '')
                 end
             elseif msg[1] == 'autokill'..prefix then
@@ -380,6 +427,12 @@ function register(v)
                 stand(v)
             elseif msg[1] == 'unfollow'..prefix then
                 unfollow()
+            elseif msg[1] == 'benx'..prefix then
+benx(msg[2])
+elseif not msg[2] then
+    benx(v)
+elseif msg[1] == 'unbenx'..prefix then
+    bending = false
             elseif msg[1] == 'db'..prefix then
                 chat('Do knock! (name) and then save! to do this!')
                 chat('You must be knocked and picked up by the Bot!')
