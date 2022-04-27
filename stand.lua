@@ -427,12 +427,7 @@ function register(v)
                 stand(v)
             elseif msg[1] == 'unfollow'..prefix then
                 unfollow()
-            elseif msg[1] == 'benx'..prefix then
-benx(msg[2])
-elseif not msg[2] then
-    benx(v)
-elseif msg[1] == 'unbenx'..prefix then
-    bending = false
+         
             elseif msg[1] == 'db'..prefix then
                 chat('Do knock! (name) and then save! to do this!')
                 chat('You must be knocked and picked up by the Bot!')
