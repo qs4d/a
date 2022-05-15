@@ -170,6 +170,7 @@ end
 abort = false
 function ATM()
     task.wait(1)
+
     
     for _,v in pairs(workspace.Cashiers:GetChildren()) do
         if v.Humanoid.Health > 1 then
@@ -184,7 +185,7 @@ function ATM()
                     until tonumber(player.DataFolder.Inventory["[Double-Barrel SG]"].Value) > 50
                 end
                 pcall(function()
-                    chr.HumanoidRootPart.CFrame = v.Head.CFrame + Vector3.new(3, -2, 3)
+                    chr.HumanoidRootPart.CFrame = v.Head.CFrame + Vector3.new(0, -2, 4)
                 end)
                 lookAt(chr, v.Open)
                 getgenv().selectedpart = v.Open
@@ -287,4 +288,3 @@ end)
 
 
 ATM()
-
